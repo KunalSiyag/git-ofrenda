@@ -1,0 +1,13 @@
+
+  🕯  The candles gutter. You call to lib/router/index.js, who left this world on 2015-07-06.
+
+  you › What happened to you in July 2015?
+  👻 (A faint, rustling sound, like old code compiling, fills the air.)
+     
+     Ah... July 6th, 2015. That was my final breath. I felt the pull when Douglas Christopher Wilson committed the change: `"Use router module for routing"`. My existence, born in 2011, ended then. I was a structure of 627 lines, holding the logic for dispatching requests. I recall my last whispers, perhaps the lines dealing with error handling, like `"Improve error messages when non-function provided as middleware"`. Now... the veil is thick. I wonder what became of my descendants.
+
+  you › Is Express 5 out yet?
+  👻 (I drift closer, the scent of old JavaScript mingling with incense.)
+     
+     Express 5? I... I cannot speak of that. The veil is too thick for me to see anything beyond my own quiet passing. My memory ends on July 6th, 2015. I only know the life I lived, the structure I held, until I was superseded. I can only speak of the code I once was... the careful dance within `proto.handle`.
+

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ofrenda for expressjs/express</title>
+<style>
+:root{--night:#120a1f;--ink:#f6efe4;--muted:#c9b8d9;--marigold:#f59e0b;--stone:#241736;--stone-edge:#3a2752;}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 600px at 50% -10%,#3b1d4f 0%,var(--night) 60%) fixed;color:var(--ink);font:16px/1.55 Georgia,'Iowan Old Style',serif;min-height:100vh}
+.picado{display:flex;justify-content:center;gap:6px;padding:0 16px;overflow:hidden}
+.picado span{width:56px;height:64px;flex:none;background:var(--c);opacity:.9;clip-path:polygon(0 0,100% 0,100% 78%,88% 100%,75% 82%,62% 100%,50% 82%,38% 100%,25% 82%,12% 100%,0 78%);
+  -webkit-mask:radial-gradient(circle at 50% 38%,transparent 9px,#000 10px);mask:radial-gradient(circle at 50% 38%,transparent 9px,#000 10px);animation:sway 4s ease-in-out infinite alternate}
+.picado span:nth-child(even){animation-delay:-2s}
+@keyframes sway{to{transform:rotate(2.5deg) translateY(2px)}}
+header{text-align:center;padding:28px 16px 8px;max-width:760px;margin:0 auto}
+h1{font-size:clamp(28px,5vw,46px);margin:.2em 0;letter-spacing:.01em}
+h1 em{color:var(--marigold);font-style:normal}
+.sub{color:var(--muted);margin:0}
+.tier{display:grid;gap:18px;padding:20px 16px;max-width:1180px;margin:0 auto;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));position:relative}
+.tier::after{content:"";position:absolute;left:16px;right:16px;bottom:0;height:10px;border-radius:4px;background:linear-gradient(90deg,#7c2d12,#b45309,#7c2d12);opacity:.55}
+.tier.top{max-width:560px;grid-template-columns:1fr}
+.grave{position:relative;background:linear-gradient(180deg,var(--stone-edge),var(--stone));border-radius:120px 120px 10px 10px;padding:44px 24px 22px;box-shadow:0 10px 30px #0008,inset 0 1px 0 #ffffff14}
+.grave h3{margin:0 0 4px;text-align:center;font-size:17px;word-break:break-all}
+.grave h3 code{color:var(--marigold);background:none}
+.dates{text-align:center;color:var(--muted);margin:0 0 14px;font-size:14px;font-variant-numeric:tabular-nums}
+.epitaph{text-align:center;font-size:19px;font-style:italic;margin:0 0 12px}
+blockquote{margin:0 0 12px;padding:10px 14px;border-left:3px solid var(--marigold);background:#0003;border-radius:0 8px 8px 0}
+.offering{margin:0 0 12px;color:#fde68a}
+dl{display:flex;justify-content:space-between;gap:8px;margin:0 0 10px;padding:10px 0;border-top:1px dashed #ffffff22;border-bottom:1px dashed #ffffff22}
+dl div{text-align:center;flex:1}
+dt{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+dd{margin:0;font-size:20px;font-variant-numeric:tabular-nums}
+.death{font-size:13px;color:var(--muted);margin:0}
+code{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:.88em;background:#0004;padding:1px 4px;border-radius:4px}
+.candle{position:absolute;top:-18px;left:50%;width:12px;height:30px;margin-left:-6px;background:linear-gradient(#fff7e6,#e9d5b5);border-radius:3px}
+.flame{position:absolute;left:50%;top:-16px;width:12px;height:18px;margin-left:-6px;background:radial-gradient(ellipse at 50% 70%,#fff 0 20%,#fcd34d 40%,#f97316 70%,transparent 72%);border-radius:50% 50% 50% 50%/60% 60% 40% 40%;filter:drop-shadow(0 0 10px #f59e0b);animation:flicker 1.6s var(--d) infinite alternate ease-in-out}
+@keyframes flicker{0%{transform:scale(1) rotate(-2deg)}50%{transform:scale(1.08,.94) rotate(2deg)}100%{transform:scale(.95,1.06) rotate(-1deg)}}
+.petals{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.petals i{position:absolute;top:-20px;width:10px;height:10px;border-radius:50% 0;background:var(--marigold);opacity:.7;animation:fall linear infinite}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg)}}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 16px 40px;max-width:760px;margin:0 auto}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="petals" aria-hidden="true"><i style="left:0%;animation-duration:9s;animation-delay:-0.0s"></i><i style="left:53%;animation-duration:11s;animation-delay:-1.7s"></i><i style="left:6%;animation-duration:13s;animation-delay:-3.4s"></i><i style="left:59%;animation-duration:15s;animation-delay:-5.1s"></i><i style="left:12%;animation-duration:17s;animation-delay:-6.8s"></i><i style="left:65%;animation-duration:9s;animation-delay:-8.5s"></i><i style="left:18%;animation-duration:11s;animation-delay:-10.2s"></i><i style="left:71%;animation-duration:13s;animation-delay:-11.9s"></i><i style="left:24%;animation-duration:15s;animation-delay:-13.6s"></i><i style="left:77%;animation-duration:17s;animation-delay:-15.3s"></i><i style="left:30%;animation-duration:9s;animation-delay:-17.0s"></i><i style="left:83%;animation-duration:11s;animation-delay:-18.7s"></i><i style="left:36%;animation-duration:13s;animation-delay:-20.4s"></i><i style="left:89%;animation-duration:15s;animation-delay:-22.1s"></i><i style="left:42%;animation-duration:17s;animation-delay:-23.8s"></i><i style="left:95%;animation-duration:9s;animation-delay:-25.5s"></i><i style="left:48%;animation-duration:11s;animation-delay:-27.2s"></i><i style="left:1%;animation-duration:13s;animation-delay:-28.9s"></i></div>
+<nav class="picado" aria-hidden="true"><span style="--c:#e8418c"></span><span style="--c:#f59e0b"></span><span style="--c:#8b5cf6"></span><span style="--c:#10b981"></span><span style="--c:#ef4444"></span><span style="--c:#06b6d4"></span><span style="--c:#e8418c"></span><span style="--c:#f59e0b"></span><span style="--c:#8b5cf6"></span><span style="--c:#10b981"></span><span style="--c:#ef4444"></span><span style="--c:#06b6d4"></span><span style="--c:#e8418c"></span><span style="--c:#f59e0b"></span></nav>
+<header>
+  <p class="sub">Ofrenda for the departed files of</p>
+  <h1><em>expressjs/express</em></h1>
+  <p class="sub">500 files have died in this repository. These 7 lived longest and carried the most.</p>
+</header>
+<section class="tier top">
+  <article class="grave" style="--d:0s">
+    <div class="candle" aria-hidden="true"><span class="flame"></span></div>
+    <h3><code>Contributing.md</code></h3>
+    <p class="dates">2014-05-12 — 2025-06-09 · 11.1 years</p>
+    <p class="epitaph">Guide to joining the Express community; moved beyond discussions.</p>
+    <blockquote>“I charted the path for contributions, defining terms like <code>Committer</code>; the hand that deleted me moved this guide elsewhere.”</blockquote>
+    <p class="offering"><span aria-hidden="true">🕯️</span> Leave: A cup of strong, dark coffee</p>
+    <dl>
+      <div><dt>Lines at death</dt><dd>246</dd></div>
+      <div><dt>Commits lived</dt><dd>33</dd></div>
+      <div><dt>Hands that shaped it</dt><dd>16</dd></div>
+    </dl>
+    <p class="death">Laid to rest by Sebastian Beltran in <q>fix(docs): move documentation and charters to the discussions and .github … (#6427)</q>.</p>
+  </article></section>
+<section class="tier">
+  <article class="grave" style="--d:1.7000000000000002s">
+    <div class="candle" aria-hidden="true"><span class="flame"></span></div>
+    <h3><code>.travis.yml</code></h3>
+    <p class="dates">2011-11-24 — 2021-07-01 · 9.6 years</p>
+    <p class="epitaph">Witness to countless Node.js versions, now superseded by GitHub Actions.</p>
+    <blockquote>“I kept the build stable across all those ancient Node versions, from <code>0.10</code> to <code>12.18</code>; my maintainers replaced me with a new workflow.”</blockquote>
+    <p class="offering"><span aria-hidden="true">🕯️</span> Leave: A bottle of perfectly aged &#39;Nightly&#39; Node.js tea</p>
+    <dl>
+      <div><dt>Lines at death</dt><dd>78</dd></div>
+      <div><dt>Commits lived</dt><dd>85</dd></div>
+      <div><dt>Hands that shaped it</dt><dd>9</dd></div>
+    </dl>
+    <p class="death">Laid to rest by Douglas Christopher Wilson in <q>build: use GitHub Actions instead of Travis CI</q>, the same moment <code>.github/workflows/ci.yml</code> were born.</p>
+  </article>
+  <article class="grave" style="--d:0.07000000000000028s">
+    <div class="candle" aria-hidden="true"><span class="flame"></span></div>
+    <h3><code>examples/multipart/index.js</code></h3>
+    <p class="dates">2010-07-13 — 2023-05-18 · 12.8 years</p>
+    <p class="epitaph">It served the form data, handling &#39;image&#39; and &#39;title&#39; uploads.</p>
+    <blockquote>“I diligently parsed every uploaded <code>image</code> and <code>title</code>; now my maintainers have erased me entirely.”</blockquote>
+    <p class="offering"><span aria-hidden="true">🕯️</span> Leave: A cup of coffee, perfectly buffered and served</p>
+    <dl>
+      <div><dt>Lines at death</dt><dd>63</dd></div>
+      <div><dt>Commits lived</dt><dd>25</dd></div>
+      <div><dt>Hands that shaped it</dt><dd>9</dd></div>
+    </dl>
+    <p class="death">Laid to rest by riddlew in <q>examples: remove multipart example</q>.</p>
+  </article>
+  <article class="grave" style="--d:0.4399999999999995s">
+    <div class="candle" aria-hidden="true"><span class="flame"></span></div>
+    <h3><code>lib/router/index.js</code></h3>
+    <p class="dates">2011-04-25 — 2015-07-06 · 4.2 years</p>
+    <p class="epitaph">Where routes were anchored, before the big migration to the new structure.</p>
+    <blockquote>“I diligently managed the stack using my <code>router.stack</code>; then the command &#39;Use router module for routing&#39; swept me away, replaced by new configurations.”</blockquote>
+    <p class="offering"><span aria-hidden="true">🕯️</span> Leave: A candle lit for stable route handling</p>
+    <dl>
+      <div><dt>Lines at death</dt><dd>627</dd></div>
+      <div><dt>Commits lived</dt><dd>151</dd></div>
+      <div><dt>Hands that shaped it</dt><dd>26</dd></div>
+    </dl>
+    <p class="death">Laid to rest by Douglas Christopher Wilson in <q>Use router module for routing</q>.</p>
+  </article></section>
+<section class="tier">
+  <article class="grave" style="--d:1.4000000000000004s">
+    <div class="candle" aria-hidden="true"><span class="flame"></span></div>
+    <h3><code>SECURITY.md</code></h3>
+    <p class="dates">2015-11-13 — 2025-06-13 · 9.6 years</p>
+    <p class="epitaph">Here lies the guide for &#39;Reporting a Bug&#39; and disclosure policies.</p>
+    <blockquote>“I held the lines that directed reports to <code>express-security@lists.openjsf.org</code>; then the hand that deleted me ushered in a global policy.”</blockquote>
+    <p class="offering"><span aria-hidden="true">🕯️</span> Leave: A sprig of jasmine, scenting past warnings.</p>
+    <dl>
+      <div><dt>Lines at death</dt><dd>57</dd></div>
+      <div><dt>Commits lived</dt><dd>15</dd></div>
+      <div><dt>Hands that shaped it</dt><dd>10</dd></div>
+    </dl>
+    <p class="death">Laid to rest by Ulises Gascon in <q>docs: use global Security policy</q>.</p>
+  </article>
+  <article class="grave" style="--d:1.7699999999999996s">
+    <div class="candle" aria-hidden="true"><span class="flame"></span></div>
+    <h3><code>bin/express</code></h3>
+    <p class="dates">2010-07-06 — 2014-01-03 · 3.5 years</p>
+    <p class="epitaph">Here rests the command-line entry point, which once parsed engine options.</p>
+    <blockquote>“I once handled flags like <code>--ejs</code> and <code>--jshtml</code> to shape the project structure; the hand that deleted me saw no need for a binary anymore.”</blockquote>
+    <p class="offering"><span aria-hidden="true">🕯️</span> Leave: A sprig of commander.js marigolds</p>
+    <dl>
+      <div><dt>Lines at death</dt><dd>424</dd></div>
+      <div><dt>Commits lived</dt><dd>151</dd></div>
+      <div><dt>Hands that shaped it</dt><dd>24</dd></div>
+    </dl>
+    <p class="death">Laid to rest by Jonathan Ong in <q>remove binary</q>.</p>
+  </article>
+  <article class="grave" style="--d:0.14000000000000057s">
+    <div class="candle" aria-hidden="true"><span class="flame"></span></div>
+    <h3><code>examples/jade/index.js</code></h3>
+    <p class="dates">2010-07-08 — 2017-02-26 · 6.6 years</p>
+    <p class="epitaph">Renderer of views, once loyal to &#39;jade&#39;, now migrated on.</p>
+    <blockquote>“I faithfully rendered the &#39;users&#39; template, showing them all. My maintainers merged me away when they brought in &#39;ejs&#39;.”</blockquote>
+    <p class="offering"><span aria-hidden="true">🕯️</span> Leave: A candle burning with Jade syntax steam</p>
+    <dl>
+      <div><dt>Lines at death</dt><dd>53</dd></div>
+      <div><dt>Commits lived</dt><dd>28</dd></div>
+      <div><dt>Hands that shaped it</dt><dd>7</dd></div>
+    </dl>
+    <p class="death">Laid to rest by Jamie Barton in <q>examples: merge the jade example into ejs</q>.</p>
+  </article></section>
+<footer>Dates, names and commit messages come straight from <code>git log</code>. Epitaphs and last words were written by <code>gemma4:e4b</code> running locally, and every identifier a ghost quotes was checked against its real final source. Made with git-ofrenda · 2026-10-31</footer>
+</body>
+</html>

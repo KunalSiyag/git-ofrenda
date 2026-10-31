@@ -1,0 +1,17 @@
+{
+  "name": "git-ofrenda",
+  "version": "0.1.0",
+  "description": "A Día de los Muertos altar for the files your git repo deleted. Local Gemma writes the epitaphs; git supplies the facts; you can hold a séance with any dead file.",
+  "type": "module",
+  "bin": {
+    "ofrenda": "bin/ofrenda.mjs"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "keywords": ["git", "gemma", "ollama", "local-first", "dia-de-los-muertos", "halloween", "hf26challenge"],
+  "author": "Kunal Siyag",
+  "license": "MIT",
+  "repository": "github:KunalSiyag/git-ofrenda",
+  "engines": { "node": ">=20" }
+}
